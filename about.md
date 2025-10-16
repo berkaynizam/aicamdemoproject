@@ -16,7 +16,7 @@ about_description: >
 layout: about
 permalink: /about/
 title: About
-hero_title: About
+hero_title: About ai@cam
 hero_description: >
   ai@cam’s mission is to drive a new wave of AI innovation that serves science,
   citizens, and society.
