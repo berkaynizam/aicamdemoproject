@@ -2,9 +2,6 @@ backend:
   name: github
   repo: berkaynizam/aicam-demo
   branch: main
-  base_url: https://api.netlify.com
-  auth_endpoint: /.netlify/functions/auth
-  cms_label_prefix: "Decap"
 local_backend: true
 
 media_folder: "assets/uploads"
