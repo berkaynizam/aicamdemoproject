@@ -1,0 +1,38 @@
+logos:
+  primary: /assets/img/logo-primary.svg
+  secondary: /assets/img/logo-secondary.svg
+menus:
+  main:
+    - title: About
+      url: /about/
+    - title: News
+      url: /news/
+  alt:
+    - title: Research
+      url: /research/
+    - title: People
+      url: /people/
+logos.primary: /assets/uploads/ai-cam-logo.svg
+logos.secondary: /assets/uploads/university-of-cambridge-logo.svg
+menus.main:
+  - title: About
+    url: /about
+  - title: News & Events
+    url: /news
+  - title: Initiatives
+    url: "#"
+  - title: AI@Cambridge
+    url: "#"
+  - title: Blog
+    url: "#"
+  - title: Reports
+    url: "#"
+  - title: Calls
+    url: "#"
+menus.alt:
+  - title: Stay at Cambridge
+    url: "#"
+  - title: About the University
+    url: "#"
+  - title: Research at Cambridge
+    url: "#"

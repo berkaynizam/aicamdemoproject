@@ -1,0 +1,43 @@
+---
+layout: default
+---
+
+<section class="news-single-page">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+
+                <div class="top-actions">
+                    <a href="{{ '/news/' | relative_url }}" class="back">
+                        <div class="icon">
+                            <img src="{{ '/assets/images/icons/arrow-left-green.svg' | relative_url }}" alt="">
+                        </div>
+                        Back to News
+                    </a>
+
+                    {% assign share_url = page.url | absolute_url %}
+                    <ul class="share">
+                        <li>Share</li>
+                        <li><a href="mailto:?subject={{ page.title | uri_escape }}&body={{ share_url | uri_escape }}"><img src="{{ '/assets/images/icons/fly.svg' | relative_url }}" alt="Email"></a></li>
+                        <li><a href="https://github.com/search?q={{ share_url | uri_escape }}" target="_blank" rel="noopener"><img src="{{ '/assets/images/icons/github.svg' | relative_url }}" alt="GitHub"></a></li>
+                        <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ share_url | uri_escape }}" target="_blank" rel="noopener"><img src="{{ '/assets/images/icons/facebook.svg' | relative_url }}" alt="Facebook"></a></li>
+                        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url={{ share_url | uri_escape }}" target="_blank" rel="noopener"><img src="{{ '/assets/images/icons/linkedin.svg' | relative_url }}" alt="LinkedIn"></a></li>
+                        <li><a href="https://twitter.com/intent/tweet?url={{ share_url | uri_escape }}&text={{ page.title | uri_escape }}" target="_blank" rel="noopener"><img src="{{ '/assets/images/icons/x.svg' | relative_url }}" alt="X"></a></li>
+                    </ul>
+                </div>
+
+                <div class="content">
+                    {% if page.date %}<span class="date">{{ page.date | date: "%-d %B %Y" }}</span>{% endif %}
+                    <h2>{{ page.title }}</h2>
+
+                    {% if page.hero %}
+                    <img src="{{ page.hero | relative_url }}" alt="{{ page.title }}" class="main-img">
+                    {% endif %}
+
+                    {{ content }}
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,128 @@
+---
+layout: default
+---
+
+<section class="news-page">
+    <div class="container">
+        <h1>{{ page.title }}</h1>
+
+        {% assign items = site.news | sort: "date" | reverse %}
+        {% assign count = items | size %}
+
+        {% if count > 0 %}
+        
+        {%- comment -%} İlk 6 haber görünür, kalanı gizli {%- endcomment -%}
+        {% assign initial_count = 6 %}
+        {% assign first = items | first %}
+        {% assign remaining = count | minus: 1 %}
+        {% if remaining > 0 %}
+        {% assign rest = items | slice: 1, remaining %}
+        {% else %}
+        {% assign rest = "" | split: "" %}
+        {% endif %}
+
+        <!-- main-box: ilk haber -->
+        <div class="main-box">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="text">
+                        <a href="{{ first.url | relative_url }}"><h2>{{ first.title }}</h2></a>
+                        {% if first.excerpt %}<p>{{ first.excerpt }}</p>{% endif %}
+                        <ul class="date">
+                            {% if first.date %}<li>{{ first.date | date: "%d %B %Y" }}</li>{% endif %}
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    {% if first.hero %}
+                    <img src="{{ first.hero | relative_url }}" alt="{{ first.title }}" class="main-img">
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- kalan haberler -->
+        <div class="row" id="news-grid">
+            {% if rest.size > 0 %}
+            {% for item in rest %}
+            {% assign item_index = forloop.index %}
+            
+            {% if item_index == 1 %}
+            <!-- 2. haber: büyük kutu (col-lg-8) -->
+            <div class="col-lg-8 news-item" data-index="{{ item_index }}">
+                <div class="big-box">
+                    {% if item.hero %}
+                    <a href="{{ item.url | relative_url }}">
+                        <img src="{{ item.hero | relative_url }}" alt="{{ item.title }}" class="main-img">
+                    </a>
+                    {% endif %}
+                    <div class="text">
+                        <a href="{{ item.url | relative_url }}"><h3>{{ item.title }}</h3></a>
+                        {% if item.date %}<h6>{{ item.date | date: "%-d %B, %Y" }}</h6>{% endif %}
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <!-- 3. ve sonrası: küçük kartlar (col-lg-4) -->
+            <div class="col-lg-4 news-grid-item news-item" data-index="{{ item_index }}" {% if item_index >= initial_count %}style="display: none;"{% endif %}>
+                <div class="item">
+                    {% if item.hero %}
+                    <a href="{{ item.url | relative_url }}">
+                        <img src="{{ item.hero | relative_url }}" alt="{{ item.title }}" class="main-img">
+                    </a>
+                    {% endif %}
+                    <div class="text">
+                        <div class="top-title">
+                            <a href="{{ item.url | relative_url }}"><h3>{{ item.title }}</h3></a>
+                            <a href="{{ item.url | relative_url }}" class="button">
+                                <img src="{{ '/assets/images/icons/arrow-right-up-black.svg' | relative_url }}" alt="">
+                            </a>
+                        </div>
+                        {% if item.date %}<h6>{{ item.date | date: "%-d %B, %Y" }}</h6>{% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+            {% endif %}
+        </div>
+
+        <!-- Load more butonu: Sadece gizli haberler varsa göster -->
+        {% if count > initial_count %}
+        <div class="load-more">
+            <a href="#" id="load-more-btn">Load more</a>
+        </div>
+        {% endif %}
+        
+        {% endif %}
+
+    </div>
+</section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const btn = document.getElementById("load-more-btn");
+        if (!btn) return;
+
+        const hiddenItems = document.querySelectorAll('.news-item[style*="display: none"]');
+        let currentIndex = 0;
+        const itemsPerLoad = 6; // Her load more'da 6 haber daha göster
+
+        btn.addEventListener("click", function (e) {
+            e.preventDefault();
+            
+            // Gizli haberleri göster
+            let shown = 0;
+            for (let i = currentIndex; i < hiddenItems.length && shown < itemsPerLoad; i++) {
+                hiddenItems[i].style.display = '';
+                shown++;
+                currentIndex++;
+            }
+
+            // Tüm haberler gösterildiyse butonu kaldır
+            if (currentIndex >= hiddenItems.length) {
+                btn.closest('.load-more').remove();
+            }
+        });
+    });
+</script>

@@ -1,0 +1,25 @@
+# Ruby / Bundler / Jekyll
+.bundle/
+vendor/
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# Node (opsiyonel, kullanıyorsan)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-lock.yaml
+
+# macOS
+.DS_Store
+
+# Env / IDE
+.env
+.vscode/
+.idea/
+
+# Netlify
+.netlify/

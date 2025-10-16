@@ -1,0 +1,92 @@
+backend:
+  name: github
+  repo: demo/demo
+  branch: main
+local_backend: true
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+publish_mode: editorial_workflow
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - name: "home"
+        label: "Home"
+        file: "index.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Logo Variant", name: "logo_variant", widget: "select", options: ["primary","secondary"], required: false }
+          - { label: "Menu Variant", name: "menu_variant", widget: "select", options: ["main","alt"], required: false }
+          - { label: "Hero", name: "hero", widget: "image", required: false }
+          - { label: "Hero Title", name: "hero_title", widget: "string", required: false }
+          - label: "Sections"
+            name: "sections"
+            widget: "list"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Body", name: "body", widget: "markdown" }
+
+      - name: "about"
+        label: "About"
+        file: "about.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+
+          # Hero
+          - { label: "Hero Title", name: "hero_title", widget: "string" }
+          - { label: "Hero Description", name: "hero_description", widget: "text" }
+
+          # About
+          - { label: "About Title", name: "about_title", widget: "string" }
+          - { label: "About Description", name: "about_description", widget: "text" }
+
+          # Find Out
+          - { label: "Find Out Title", name: "findout_title", widget: "string" }
+          - label: "Find Out Boxes"
+            name: "findout_boxes"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Link", name: "url", widget: "string", pattern: [ "^(/|https?://)", "Must be a relative or absolute URL" ] }
+              - { label: "Image", name: "image", widget: "image" }
+
+  - name: "news"
+    label: "News"
+    folder: "_news"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title",   name: "title",   widget: "string" }
+      - { label: "Date",    name: "date",    widget: "datetime" }
+      - { label: "Excerpt", name: "excerpt", widget: "text", required: false }
+      - { label: "Cover",   name: "hero",    widget: "image", required: false }
+      - { label: "Content", name: "body",    widget: "markdown" }
+
+  - name: "data"
+    label: "Site Data"
+    files:
+      - name: "navigation"
+        label: "Navigation & Logos"
+        file: "_data/navigation.yml"
+        fields:
+          - label: "Primary Logo"
+            name: "logos.primary"
+            widget: "image"
+          - label: "Secondary Logo"
+            name: "logos.secondary"
+            widget: "image"
+          - label: "Main Menu"
+            name: "menus.main"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+          - label: "Alt Menu"
+            name: "menus.alt"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }

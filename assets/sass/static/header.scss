@@ -1,0 +1,316 @@
+header {
+    padding: 15px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.01);
+    backdrop-filter: blur(25px);
+
+    .container {
+
+        .header-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba($color: #fff, $alpha: .11);
+
+            @include max992 {
+                display: none;
+            }
+            
+            .logo {
+                display: inline-block;
+
+                img {
+                    height: 25px;
+                    object-fit: contain;
+                }
+            }
+
+            .actions {
+                display: flex;
+                align-items: center;
+
+                .top-menu {
+                    display: flex;
+                    align-items: center;
+
+                    li {
+                        margin-left: 24px;
+
+                        a {
+                            color: #fff;
+                            font-size: 14px;
+                        }
+                    }
+                }
+
+                form {
+                    margin-left: 24px;
+
+                    input {
+                        display: none;
+
+                        &:checked+label::before {
+                            left: 32px;
+                            background-color: $primary-color;
+                        }
+
+                        &:checked+label img {
+                            &.first-img {
+                                filter: none;
+                            }
+                        }
+                    }
+
+                    label {
+                        position: relative;
+                        width: 60px;
+                        height: 30px;
+                        border-radius: 100px;
+                        background-color: $second-color;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        padding: 0 10px;
+                        cursor: pointer;
+                        transition: $eio;
+
+                        &::before {
+                            content: "";
+                            width: 24px;
+                            height: 24px;
+                            background-color: $primary-color;
+                            display: block;
+                            position: absolute;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            left: 4px;
+                            border-radius: 50%;
+                            transition: $eio;
+                        }
+
+                        img {
+                            position: relative;
+                            z-index: 2;
+                            transition: $eio;
+
+                            &.first-img {
+                                filter: brightness(0) invert(1);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .main-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .logo {
+                img {
+                    height: 45px;
+                    position: relative;
+                    z-index: 2;
+
+                    @include max992 {
+                        height: 35px;
+                    }
+                }
+            }
+
+            .menu {
+                display: flex;
+                align-items: center;
+
+                @include max992 {
+                    justify-content: flex-start;
+                    flex-direction: column;
+                    width: 100%;
+                    height: 100vh;
+                    position: absolute;
+                    top: 0;
+                    right: -100%;
+                    background-color: $primary-color;
+                    opacity: 0;
+                    visibility: hidden;
+                    transition: $eio;
+                    max-width: 250px;
+                    padding-top: 120px;
+
+                    &.active {
+                        right: 0;
+                        opacity: 1;
+                        visibility: visible;
+                    }
+                }
+
+                li {
+                    margin-left: 24px;
+                    position: relative;
+
+                    @include max992 {
+                        margin-left: 0;
+                        margin-bottom: 15px;
+                        padding-bottom: 15px;
+                        border-bottom: 1px solid rgba($color: #fff, $alpha: .1);
+                        width: 100%;
+                        text-align: right;
+                        padding-right: 18px;
+                    }
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        background: #fff;
+                        width: 100%;
+                        height: 1px;
+                        z-index: -1;
+                        transform-origin: right;
+                        transform: scaleX(0);
+                        transition: transform .5s;
+
+                        @include max992 {
+                            display: none;
+                        }
+                    }
+
+                    &:hover {
+                        &::before {
+                            width: 100%;
+                            transform-origin: left;
+                            transform: scaleX(1);
+                        }
+
+                        .sub-menu {
+                            opacity: 1;
+                            top: 30px;
+                            visibility: visible;
+
+                            @include max992 {
+                                top: 0;
+                            }
+                        }
+                    }
+
+                    &.current-menu-item {
+                        &::before {
+                            width: 100%;
+                        }
+                    }
+
+                    .sub-menu {
+                        background-color: #fff;
+                        position: absolute;
+                        z-index: 2;
+                        top: 95px;
+                        left: -50px;
+                        min-width: 200px;
+                        opacity: 0;
+                        visibility: hidden;
+                        transition: $eio;
+                        padding: 24px;
+                        box-shadow: 0 0 10px 0 rgba($color: #000000, $alpha: .1);
+
+                        @include max992 {
+                            position: relative;
+                            top: 0;
+                            min-width: auto;
+                            visibility: visible;
+                            opacity: 1;
+                            display: none;
+                            background: transparent;
+                            border-top: none;
+                            padding-right: 0;
+                            border: none;
+                            box-shadow: none;
+                            left: 0;
+                        }
+
+                        li {
+                            margin-bottom: 15px;
+                            margin-left: 0;
+                            margin-right: 0;
+                            padding-bottom: 15px;
+
+                            &:last-child {
+                                padding-bottom: 0;
+                            }
+
+                            &::before {
+                                display: none;
+                            }
+
+                            @include max992 {
+                                margin-bottom: 10px;
+                                margin-left: 0;
+                                padding-right: 0px;
+                                border-bottom: 1px solid rgba($color: #fff, $alpha: .2);
+                                width: 100%;
+                            }
+
+                            &:hover {
+                                a {
+                                    color: $primary-color;
+                                }
+                            }
+
+                            &:last-child {
+                                margin-bottom: 0;
+                                border-bottom: 0;
+                            }
+
+                            a {
+                                font-size: 14px;
+                                color: #000;
+                                transition: $eio;
+                                white-space: nowrap;
+                                margin: 0;
+                                padding: 0;
+                                display: block;
+                                line-height: inherit;
+
+                                @include max992 {
+                                    display: block;
+                                    text-align: right;
+                                    color: #fff;
+                                    font-weight: 500;
+                                }
+                            }
+                        }
+                    }
+
+                    .sub-down {
+                        color: #000;
+
+                        @include max992 {
+                            color: #fff;
+                            position: absolute;
+                            right: 4px;
+                            top: 4px;
+                        }
+                    }
+
+
+                    a {
+                        color: #fff;
+                        transition: $eio;
+                        font-size: 16px;
+                        font-weight: 700;
+                        @include max992 {
+                            font-size: 22px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

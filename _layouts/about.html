@@ -1,0 +1,58 @@
+---
+layout: default
+---
+
+<section class="about-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="main-title">
+                    {% if page.hero_title %}<h2>{{ page.hero_title }}</h2>{% endif %}
+                    {% if page.hero_description %}<p>{{ page.hero_description }}</p>{% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="main-text">
+                <div class="row">
+                    <div class="col-lg-6">
+                        {% if page.about_title %}<h3>{{ page.about_title }}</h3>{% endif %}
+                    </div>
+                    <div class="col-lg-6">
+                        {% if page.about_description %}<p>{{ page.about_description }}</p>{% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="find-out">
+                {% if page.findout_title %}<h2 class="title">{{ page.findout_title }}</h2>{% endif %}
+
+                {% if page.findout_boxes and page.findout_boxes.size > 0 %}
+                <div class="row">
+                    {% for box in page.findout_boxes %}
+                    <div class="col-lg-4">
+                        <div class="item">
+                            <div class="top-title">
+                                <a href="{{ box.url | default: '#' }}">
+                                    <h3>{{ box.title }}</h3>
+                                </a>
+                                <a href="{{ box.url | default: '#' }}" class="button">
+                                    <img src="{{ '/assets/images/icons/arrow-right-up-black.svg' | relative_url }}" alt="">
+                                </a>
+                            </div>
+
+                            <a href="{{ box.url | default: '#' }}">
+                                {% if box.image %}
+                                <img src="{{ box.image | relative_url }}" alt="{{ box.title }}" class="main-img">
+                                {% endif %}
+                            </a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>

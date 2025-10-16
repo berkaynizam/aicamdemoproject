@@ -1,0 +1,20 @@
+[build]
+  command = "bundle exec jekyll build"
+  publish = "_site"
+
+[build.environment]
+  JEKYLL_ENV = "production"
+  RUBY_VERSION = "3.2.2" # makinedeki ruby sürümüne uyacak şekilde değiştirebilirsin
+  # Eğer SCSS kullanıyorsan, ek node ihtiyacı:
+  # NODE_VERSION = "20"
+
+# İsteğe bağlı eklentiler
+[[plugins]]
+  package = "@netlify/plugin-sitemap"
+
+# Yönlendirme örnekleri (gerekiyorsa)
+#[[redirects]]
+#  from = "/news"
+#  to = "/news/"
+#  status = 301
+#  force = true

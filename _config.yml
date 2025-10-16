@@ -1,0 +1,22 @@
+title: AI@Cam Demo
+url: ""          # Netlify/GitHub Pages'te güncellersin
+baseurl: ""      # alt dizin yoksa boş bırak
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate-v2
+
+collections:
+  news:
+    output: true
+    permalink: /news/:slug/
+
+future: true        # gelecekteki tarihli haberler de görünsün (test için)
+
+defaults:
+  - scope:
+      path: ""          # tüm proje
+      type: "news"      # koleksiyon adı (alt çizgisiz)
+    values:
+      layout: "news"
+

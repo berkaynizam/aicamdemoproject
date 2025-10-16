@@ -1,0 +1,68 @@
+<!-- Header -->
+<header>
+    <div class="container">
+        {%- assign logos_primary   = site.data.navigation["logos.primary"]   | default: site.data.navigation.logos.primary   -%}
+        {%- assign logos_secondary = site.data.navigation["logos.secondary"] | default: site.data.navigation.logos.secondary -%}
+
+        <!-- Üst satır: Primary logo + Alt (secondary) menu -->
+        <div class="header-top">
+            <a href="{{ '/' | relative_url }}" class="logo">
+                <img src="{{ logos_secondary | relative_url }}" alt="Primary Logo">
+            </a>
+            <div class="actions">
+                {%- assign alt_nav = site.data.navigation["menus.alt"] | default: site.data.navigation.menus.alt -%}
+
+                <ul class="top-menu">
+                    {%- if alt_nav and alt_nav.size > 0 -%}
+                    {%- for item in alt_nav -%}
+                    <li>
+                        <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+                    </li>
+                    {%- endfor -%}
+                    {%- else -%}
+                    <!-- Fallback -->
+                    {%- endif -%}
+                </ul>
+
+                <form action="">
+                    <input type="checkbox" id="check">
+                    <label for="check">
+                        <img src="{{ '/assets/images/icons/switch-1.svg' | relative_url }}" alt="" class="first-img">
+                        <img src="{{ '/assets/images/icons/switch-2.svg' | relative_url }}" alt="">
+                    </label>
+                </form>
+            </div>
+        </div>
+
+        <!-- Ana satır: Secondary logo + Main menu -->
+        <div class="main-header">
+            <a href="{{ '/' | relative_url }}" class="logo">
+                <img src="{{ logos_primary | relative_url }}" alt="{{ site.title }}">
+            </a>
+
+            <nav>
+                {%- assign main_nav = site.data.navigation["menus.main"] | default: site.data.navigation.menus.main -%}
+                <ul class="menu">
+                    {%- if main_nav and main_nav.size > 0 -%}
+                    {%- for item in main_nav -%}
+                    {%- assign is_active = (page.url == item.url) or (page.url != '/' and page.url contains item.url) -%}
+                    <li>
+                        <a href="{{ item.url | relative_url }}"
+                           {%- if is_active -%} aria-current="page" class="is-active"{%- endif -%}>
+                            {{ item.title }}
+                        </a>
+                    </li>
+                    {%- endfor -%}
+                    {%- else -%}
+                    <!-- Fallback -->
+                    {%- endif -%}
+                </ul>
+
+                <a href="#" class="menu-trigger" aria-label="Open menu">
+                    <span></span><span></span><span></span>
+                </a>
+            </nav>
+        </div>
+    </div>
+</header>
+<!-- Header End -->
