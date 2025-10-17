@@ -31,7 +31,4 @@ findout_boxes:
   - title: Sciencepreneurship
     url: https://www.cam.ac.uk/
     image: /assets/images/materials/about-find-3.png
-  - title: Test box
-    url: https://aicamdemo.netlify.app/news/
-    image: /assets/uploads/about-find-3.png
 ---
