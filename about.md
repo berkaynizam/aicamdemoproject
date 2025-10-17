@@ -3,16 +3,15 @@ about_title: >
   The University of Cambridge is home to a dynamic AI community, pursuing
   high-quality interdisciplinary collaborations that take AI from the lab to
   areas of need.
-about_description: >
-  Progress in AI research and innovation can provide tools to help tackle the
-  complex challenges society faces – in economic growth, health and social care,
-  environment and wellbeing, and more. To deliver on this promise, AI research
-  and development needs to connect to public interests, concerns, and areas of
-  need. ai@cam is building an infrastructure for interdisciplinary AI innovation
-  through research, education, and innovation programmes that leverage the
-  world-leading research already taking place across the University and
-  connecting this to real-world needs. Read more about our work in our 2023-24
-  annual report at this link.
+about_description: Progress in AI research and innovation can provide tools to
+  help tackle the complex challenges society faces – **in economic growth,
+  health and social care, environment and wellbeing, and more. To deliver on
+  this promise, AI rese**arch and development needs to connect to public
+  interests, concerns, and areas of need. ai@cam is building an infrastructure
+  for interdisciplinary AI innovation through research, education, and
+  innovation programmes that leverage the world-leading research already taking
+  place across the University and connecting this to real-world needs. Read more
+  about our work in our 2023-24 annual report at this link.
 layout: about
 permalink: /about/
 title: About
