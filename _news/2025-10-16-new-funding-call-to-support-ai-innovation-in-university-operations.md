@@ -3,7 +3,7 @@ title: New funding call to support AI innovation in University operations
 date: 2025-07-18T00:00:00.000+03:00
 hero: /assets/uploads/news-1.png
 ---
-ai@cam has launched a new funding call to support professional services teams across the University of Cambridge in deploying AI to improve the efficiency of operational processes.
+**ai@cam** has launched a new funding call to support professional services teams across the University of Cambridge in deploying AI to improve the efficiency of operational processes.
 
 The call is part of its ai@cam’s AI for Operations programme and offers project grants of up to £10,000 for six-month sprints. Selected teams will also receive hands-on technical support and opportunities to share their learning across the University community.
 

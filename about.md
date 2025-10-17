@@ -15,11 +15,10 @@ about_description: >
   annual report at this link.
 layout: about
 permalink: /about/
-title: About test 3
-hero_title: About test
-hero_description: >
-  ai@cam’s mission is to drive a new wave of AI innovation that serves science,
-  citizens, and society.
+title: About
+hero_title: About
+hero_description: ai@cam’s mission is to drive a new wave of AI innovation that
+  serves science, [citizens](https://google.com){:target="_blank"}, and society.
 findout_title: Find out more about our initiatives
 findout_boxes:
   - title: AI-deas
@@ -31,7 +30,7 @@ findout_boxes:
   - title: Sciencepreneurship
     url: https://www.cam.ac.uk/
     image: /assets/images/materials/about-find-3.png
-  - title: About test
+  - title: New Box
+    url: https://google.com
     image: /assets/uploads/about-find-3.png
-    url: /
 ---

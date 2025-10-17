@@ -28,6 +28,27 @@ $(function(){
         $(this).prev().slick('slickNext');
     });
 
+
+    $('.find-out-loop').slick({
+        dots: true,
+        infinite: true,
+        speed: 600,
+        arrows: false,
+        autoplay: true,
+        autoplaySpeed: 5000,
+        fade: false,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        responsive: [
+    {
+      breakpoint: 992,
+      settings: {
+        slidesToShow: 1
+      }
+    }
+  ]
+    });
+
     function doAnimations(elements) {
         var animationEndEvents = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
         elements.each(function() {

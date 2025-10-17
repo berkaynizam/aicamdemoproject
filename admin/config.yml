@@ -36,11 +36,11 @@ collections:
 
           # Hero
           - { label: "Hero Title", name: "hero_title", widget: "string" }
-          - { label: "Hero Description", name: "hero_description", widget: "text" }
+          - { label: "Hero Description", name: "hero_description", widget: "markdown" }
 
           # About
           - { label: "About Title", name: "about_title", widget: "string" }
-          - { label: "About Description", name: "about_description", widget: "text" }
+          - { label: "About Description", name: "about_description", widget: "markdown" }
 
           # Find Out
           - { label: "Find Out Title", name: "findout_title", widget: "string" }

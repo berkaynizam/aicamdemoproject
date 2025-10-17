@@ -993,6 +993,9 @@ form:invalid button[type=submit] {
   color: #fff;
   max-width: 550px;
 }
+.about-page .main-title p a {
+  color: #88E7C5;
+}
 .about-page .main-text {
   margin-top: 44px;
   padding-top: 44px;
@@ -1061,6 +1064,63 @@ form:invalid button[type=submit] {
   border-radius: 12px;
 }
 .about-page .find-out .item .main-img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+}
+.about-page .find-out-slider {
+  padding: 120px 0 80px 0;
+}
+.about-page .find-out-slider .title {
+  text-align: center;
+  color: #fff;
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 44px;
+}
+.about-page .find-out-slider .find-out-loop .slick-dots {
+  bottom: -30px;
+}
+.about-page .find-out-slider .find-out-loop .slick-dots li.slick-active div {
+  background-color: #88E7C5;
+}
+.about-page .find-out-slider .find-out-loop .slick-dots li div {
+  background-color: transparent;
+  border: 1px solid #88E7C5;
+}
+.about-page .find-out-slider .item {
+  display: block;
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 0 8px;
+}
+@media (max-width: 992px) {
+  .about-page .find-out-slider .item {
+    margin-bottom: 24px;
+  }
+}
+.about-page .find-out-slider .item .top-title {
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.about-page .find-out-slider .item .top-title h3 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #093044;
+}
+.about-page .find-out-slider .item .top-title .button {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #88E7C5;
+  border-radius: 12px;
+}
+.about-page .find-out-slider .item .main-img {
   width: 100%;
   height: 260px;
   object-fit: cover;

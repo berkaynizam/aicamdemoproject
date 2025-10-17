@@ -8,7 +8,9 @@ layout: default
             <div class="col-lg-6">
                 <div class="main-title">
                     {% if page.hero_title %}<h2>{{ page.hero_title }}</h2>{% endif %}
-                    {% if page.hero_description %}<p>{{ page.hero_description }}</p>{% endif %}
+                    {% if page.hero_description %}
+                    <div class="rte">{{ page.hero_description | markdownify }}</div>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -20,39 +22,66 @@ layout: default
                         {% if page.about_title %}<h3>{{ page.about_title }}</h3>{% endif %}
                     </div>
                     <div class="col-lg-6">
-                        {% if page.about_description %}<p>{{ page.about_description }}</p>{% endif %}
+                        {% if page.about_description %}
+                        <div class="rte">{{ page.about_description | markdownify }}</div>
+                        {% endif %}
                     </div>
                 </div>
             </div>
 
-            <div class="find-out">
-                {% if page.findout_title %}<h2 class="title">{{ page.findout_title }}</h2>{% endif %}
+            {% assign boxes = page.findout_boxes | default: empty %}
+            {% assign count = boxes | size %}
+            {% assign title = page.findout_title | default: "Find out more about our initiatives" %}
 
-                {% if page.findout_boxes and page.findout_boxes.size > 0 %}
+            {% if count > 3 %}
+            <!-- SLIDER MODU -->
+            <div class="find-out-slider">
+                <h2 class="title">{{ title }}</h2>
+                <div class="find-out-loop">
+                    {% for box in boxes %}
+                    <div class="item">
+                        <div class="top-title">
+                            <a href="{{ box.url | default: '#' }}"><h3>{{ box.title }}</h3></a>
+                            <a href="{{ box.url | default: '#' }}" class="button">
+                                <img src="{{ '/assets/images/icons/arrow-right-up-black.svg' | relative_url }}" alt="">
+                            </a>
+                        </div>
+                        {% if box.image %}
+                        <a href="{{ box.url | default: '#' }}">
+                            <img src="{{ box.image | relative_url }}" alt="{{ box.title }}" class="main-img">
+                        </a>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            {% else %}
+            <!-- GRID MODU (≤3) -->
+            <div class="find-out">
+                <h2 class="title">{{ title }}</h2>
                 <div class="row">
-                    {% for box in page.findout_boxes %}
+                    {% for box in boxes %}
                     <div class="col-lg-4">
                         <div class="item">
                             <div class="top-title">
-                                <a href="{{ box.url | default: '#' }}">
-                                    <h3>{{ box.title }}</h3>
-                                </a>
+                                <a href="{{ box.url | default: '#' }}"><h3>{{ box.title }}</h3></a>
                                 <a href="{{ box.url | default: '#' }}" class="button">
                                     <img src="{{ '/assets/images/icons/arrow-right-up-black.svg' | relative_url }}" alt="">
                                 </a>
                             </div>
-
+                            {% if box.image %}
                             <a href="{{ box.url | default: '#' }}">
-                                {% if box.image %}
                                 <img src="{{ box.image | relative_url }}" alt="{{ box.title }}" class="main-img">
-                                {% endif %}
                             </a>
+                            {% endif %}
                         </div>
                     </div>
                     {% endfor %}
                 </div>
-                {% endif %}
             </div>
+            {% endif %}
+
         </div>
     </div>
 </section>
