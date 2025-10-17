@@ -31,4 +31,7 @@ findout_boxes:
   - title: Sciencepreneurship
     url: https://www.cam.ac.uk/
     image: /assets/images/materials/about-find-3.png
+  - title: About test
+    image: /assets/uploads/about-find-3.png
+    url: /
 ---
