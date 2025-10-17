@@ -15,7 +15,7 @@ about_description: >
   annual report at this link.
 layout: about
 permalink: /about/
-title: About test
+title: About test 3
 hero_title: About test
 hero_description: >
   ai@cam’s mission is to drive a new wave of AI innovation that serves science,
